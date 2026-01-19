@@ -172,19 +172,6 @@ python experiments/run_celeba_experiment.py \
 | `mask_sizes` | [256] | Size of center mask |
 | `diffusion_steps` | 50 | SD inference steps |
 
-## Expected Results
-
-After running the experiment, you'll get:
-
-### Quantitative Results
-
-| Method | FID ↓ | LPIPS ↓ | PSNR ↑ | SSIM ↑ |
-|--------|-------|---------|--------|--------|
-| Pure Noise | ~28 | ~0.18 | ~24 | ~0.86 |
-| Naive Blend | ~25 | ~0.15 | ~26 | ~0.89 |
-| Wavelet (Ours) | ~22 | ~0.12 | ~27 | ~0.91 |
-
-*Note: Actual values depend on dataset, mask size, and random seed.*
 
 ### Output Files
 
@@ -250,19 +237,6 @@ python experiments/run_celeba_experiment.py --mock --quick-test
 
 ```bash
 pip install -r requirements.txt
-```
-
-## Citation
-
-If you use this code in your research, please cite:
-
-```bibtex
-@misc{wavelet-inpainting,
-  title={Adaptive Wavelet-Based Context Initialization for Diffusion Inpainting},
-  author={Your Name},
-  year={2024},
-  howpublished={\url{https://github.com/yourusername/wavelet-inpainting}}
-}
 ```
 
 ## License
