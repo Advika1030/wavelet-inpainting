@@ -1,0 +1,43 @@
+# Default configuration for wavelet-based inpainting experiment
+
+# Dataset settings
+dataset: celeba_hq
+data_root: data
+resolution: 1024
+
+# Mask settings
+mask_type: center  # center, random_rect, or irregular
+mask_sizes:
+  - 256  # Start with 256×256 center masks
+
+# Wavelet initialization settings
+alpha_schedule:
+  - 0.9  # LL band (low frequency) - trust context heavily
+  - 0.6  # Level-3 details (mid frequency) - balanced
+  - 0.3  # Level-2/1 details (high frequency) - trust noise more
+wavelet_type: db4  # Daubechies 4 wavelet
+decomposition_levels: 3
+noise_sigma: 0.5
+
+# Experiment settings
+num_test_samples: 100  # Number of test samples to evaluate
+seed: 42  # Random seed for reproducibility
+
+# Diffusion settings
+diffusion_steps: 50
+guidance_scale: 7.5
+prompt: ""  # Empty for unconditional face generation
+
+# Device settings
+device: cuda  # cuda or cpu
+
+# Output settings
+output_dir: outputs
+save_intermediate: true
+batch_size: 1
+
+# Evaluation settings
+compute_fid: true
+
+# Development settings
+use_mock_pipeline: false  # Set true for testing without SD model
